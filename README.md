@@ -1,4 +1,4 @@
-# Python103
+# Python 103
 
 <details>
     <summary>მასალები</summary>
@@ -17,7 +17,7 @@
 **Django**
 - [Django for Beginners](https://b-ok.asia/book/11235649/1e051e)
     
-**Algorithms*
+**Algorithms**
 - [The Algorithm Design Manual (Skiena)](https://b-ok.asia/book/18874390/49fa12)
 - [Introduction to Algorithms, Third Edition (Cormen)](https://b-ok.asia/book/5789454/679d14)
 </details>
