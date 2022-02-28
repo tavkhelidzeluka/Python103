@@ -8,6 +8,12 @@
 </details>
 
 <details>
+    <summary>დავალებები</summary>
+
+- [Quiz 1](https://forms.gle/QUx2xHFUpbUBpQ147)
+</details>
+
+<details>
   <summary>წიგნები</summary> 
 
 **Python**
