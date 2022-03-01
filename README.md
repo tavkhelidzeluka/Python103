@@ -4,6 +4,7 @@
     <summary>მასალები</summary>
 
 - [Workshop 1](workshop_1.md)
+- [Workshop 2](workshop_2.md)
   
 </details>
 
