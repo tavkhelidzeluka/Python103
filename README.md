@@ -12,6 +12,7 @@
     <summary>დავალებები</summary>
 
 - [Quiz 1](https://forms.gle/QUx2xHFUpbUBpQ147)
+- [Quiz 2](https://forms.gle/GYJ1fpEewZCERXkA8)
 </details>
 
 <details>
