@@ -13,6 +13,7 @@
 
 - [Quiz 1](https://forms.gle/QUx2xHFUpbUBpQ147)
 - [Quiz 2](https://forms.gle/GYJ1fpEewZCERXkA8)
+    - [Quiz 2.1](https://forms.gle/qu7v47cuA9SetjNPA)
 </details>
 
 <details>
