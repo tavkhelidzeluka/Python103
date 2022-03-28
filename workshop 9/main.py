@@ -125,10 +125,19 @@ print('gadavedi amoxsnaze')
 
 c = 0
 l = [(i, e) for i, e in enumerate(nums)]
+
+# def comparator(x: tuple[int, int]):
+#     return x[1]
+
+
+# davalaget
 l.sort(key=lambda x: x[1]) 
 
 pivot = len(l) // 2
 
+"""
+    გავფილტრეთ ისეთი ელემენტები რომლებიც მეტია target -ზე
+"""
 while True:
     c += 1
     val = l[pivot][1]
@@ -144,6 +153,18 @@ while True:
 i = 0
 j = len(l) - 1 
 print(l)
+'''
+    ამოცანას ვხსნით ნაკლებ ელემენტზე 
+    ისეთ ელემენტებზე, რომლებიც ნაკლები არიან target -ზე
+    
+
+    target = 10
+
+    1, 2, 4, 5, 6, 7
+
+    დავალება:
+        ბინარული ძებნით იპოვოთ ამოხსნა
+'''
 while i <= j:
     c += 1
     num1 = l[i][1]
