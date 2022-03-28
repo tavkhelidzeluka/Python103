@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <title>Blog Site</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+
+    {% comment %}
+
+    {{ number }}
+    {{ posts }}
+    {% endcomment %}
+
+    <img src="{% static 'images/background-image.jpg' %}" width=250 />
+
+    <ul>
+        {# template tag (for loop) #}
+        {% for post in posts %}
+        <li>{{ post }}</li>
+        {% comment %} <li>{{ post.title }} &mdash; {{ post.author.username }}</li> {% endcomment %}
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
