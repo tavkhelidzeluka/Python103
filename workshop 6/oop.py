@@ -150,7 +150,6 @@ class Circle(Shape):
     def get_area(self):
         print(math.pi * (self.radius ** 2))
 
-
 class Square(Rectangle):
     def __init__(self, a: float, b: float) -> None:
         if a != b:
