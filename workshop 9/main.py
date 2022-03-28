@@ -80,9 +80,10 @@ def Range(n: int):
 # for i in Range(10):
 #     print(i)
 import random
-nums = [i for i in range(1, 10000000)]
-random.shuffle(nums)
-target = 900000
+nums = list(set([randint(0, 9999999) for _ in range(1000000)]))
+
+# random.shuffle(nums)
+target = 200
 
 found = False
 print('gadavedi amoxsnaze')
@@ -134,17 +135,15 @@ while True:
     if val > target:
         l = l[:pivot]
         pivot = len(l) // 2
-    elif val == target:
+    elif val <= target:
         l = l[:pivot + 1]
-        break
-    else:
         break
 
 
 # print(l)
 i = 0
 j = len(l) - 1 
-
+print(l)
 while i <= j:
     c += 1
     num1 = l[i][1]
