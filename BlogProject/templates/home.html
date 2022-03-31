@@ -1,33 +1,25 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block title %}Blog{% endblock title %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
-    <title>Blog Site</title>
-</head>
+{% block content %}
+<h1>Hello World</h1>
 
-<body>
-    <h1>Hello World</h1>
+{% comment %}
 
-    {% comment %}
+{{ number }}
+{{ posts }}
+{% endcomment %}
 
-    {{ number }}
-    {{ posts }}
-    {% endcomment %}
+{% comment %} <img src="{% static 'images/background-image.jpg' %}" width=250 /> {% endcomment %}
 
-    <img src="{% static 'images/background-image.jpg' %}" width=250 />
-
-    <ul>
-        {# template tag (for loop) #}
-        {% for post in posts %}
-        <li>{{ post }}</li>
-        {% comment %} <li>{{ post.title }} &mdash; {{ post.author.username }}</li> {% endcomment %}
-        {% endfor %}
-    </ul>
-</body>
-
-</html>
+<a href='{% url 'post-create' %}' class='btn btn-primary'>Create New Post</a>
+<ul>
+    {# template tag (for loop) #}
+    {% for post in posts %}
+    <li>
+        <a href="{% url 'post-details' post.pk %}">{{ post.title }}</a> &mdash; {{ post.author }}
+    </li>
+    {% comment %} <li>{{ post.title }} &mdash; {{ post.author.username }}</li> {% endcomment %}
+    {% endfor %}
+</ul>
+{% endblock content %}
