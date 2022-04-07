@@ -1,8 +1,7 @@
+from calendar import c
 from django.db import models
 from django.urls import reverse
 from users.models import User
-
-
 
 
 class Post(models.Model):
@@ -22,3 +21,11 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('blog:post-details', kwargs={'pk': self.pk})
 
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    body = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    

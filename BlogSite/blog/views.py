@@ -1,7 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from blog.forms import PostCreateFrom, PostModifyFrom
-from blog.models import Post
+from blog.forms import CommentCreateForm, PostCreateFrom, PostModifyFrom
+from blog.models import Post, Comment
 from django.contrib.auth.decorators import login_required
 
 
@@ -19,7 +19,9 @@ def post_list_view(request: HttpRequest) -> HttpResponse:
 
 def post_detail_view(request: HttpRequest, pk: int) -> HttpResponse:
     return render(request, 'post-details.html', {
-        'post': get_object_or_404(Post, pk=pk)
+        'post': get_object_or_404(Post, pk=pk),
+        'comments': Comment.objects.filter(post__pk=pk),
+        'comment_form': CommentCreateForm()
     })
 
 
@@ -66,5 +68,28 @@ def post_modify_view(request: HttpRequest, pk: int) -> HttpResponse:
     
     return render(request, 'post-edit.html', {
         'post_form': form
+    })
+
+
+@login_required
+def create_comment_view(request: HttpRequest) -> HttpResponse:
+    if request.method == 'GET':
+        return redirect('blog:home')
+
+    form = CommentCreateForm(request.POST)
+    post_pk = request.POST.get('post')
+    get_object_or_404(Post, pk=post_pk)
+
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.user = request.user
+        comment.save()
+        print()
+        return redirect('blog:post-details', post_pk)
+    print(form.errors)
+    return render(request, 'post-details.html', {
+        'post': get_object_or_404(Post, pk=post_pk),
+        'comments': Comment.objects.filter(post__pk=post_pk),
+        'comment_form': form
     })
 
