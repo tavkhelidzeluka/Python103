@@ -62,8 +62,11 @@
                       <div class="col-6">
                         <ul class="post-tags">
                           <li><i class="fa fa-tags"></i></li>
-                          <li><a href="#">Best Templates</a>,</li>
-                          <li><a href="#">TemplateMo</a></li>
+                          {% for tag in post.tag_set.all %}
+                          <li><a href="#">{{ tag.title }}</a>
+                            {% if forloop.counter < post.tag_set.all|length %},{% endif %}
+                          </li>
+                          {% endfor %}
                         </ul>
                       </div>
                       <div class="col-6">
@@ -148,18 +151,14 @@
                 </div>
                 <div class="content">
                   <ul>
-                    <li><a href="post-details.html">
-                        <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
-                        <span>May 31, 2020</span>
-                      </a></li>
-                    <li><a href="post-details.html">
-                        <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
-                        <span>May 28, 2020</span>
-                      </a></li>
-                    <li><a href="post-details.html">
-                        <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
-                        <span>May 14, 2020</span>
-                      </a></li>
+                    {% for recent_post in post.get_recent_posts %}
+                    <li>
+                      <a href="{{ recent_post.get_absolute_url }}">
+                        <h5>{{ recent_post.title }}</h5>
+                        <span>{{ recent_post.created_at }}</span>
+                      </a>
+                    </li>
+                    {% endfor %}
                   </ul>
                 </div>
               </div>

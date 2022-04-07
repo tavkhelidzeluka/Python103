@@ -1,4 +1,5 @@
 from calendar import c
+import re
 from django.db import models
 from django.urls import reverse
 from users.models import User
@@ -20,6 +21,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:post-details', kwargs={'pk': self.pk})
+    
+    @staticmethod
+    def get_recent_posts():
+        return Post.objects.order_by('-created_at').all()[:3]
 
 
 class Comment(models.Model):
@@ -29,3 +34,9 @@ class Comment(models.Model):
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     
+
+class Tag(models.Model):
+    title = models.CharField(max_length=255)
+    posts = models.ManyToManyField(Post)
+
+

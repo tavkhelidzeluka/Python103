@@ -167,7 +167,7 @@
                   <ul class="post-info">
                     <li><a href="#">{{ post.user.username }}</a></li>
                     <li><a href="#">{{ post.created_at }}</a></li>
-                    <li><a href="#">12 Comments</a></li>
+                    <li><a href="#">{{ post.comment_set.all|length }} Comments</a></li>
                   </ul>
                   <p>{{ post.body }}</p>
                   <div class="post-options">
@@ -175,8 +175,11 @@
                       <div class="col-6">
                         <ul class="post-tags">
                           <li><i class="fa fa-tags"></i></li>
-                          <li><a href="#">Beauty</a>,</li>
-                          <li><a href="#">Nature</a></li>
+                          {% for tag in post.tag_set.all %}
+                          <li><a href="#">{{ tag.title }}</a>
+                            {% if forloop.counter < post.tag_set.all|length %},{% endif %}
+                          </li>
+                          {% endfor %}
                         </ul>
                       </div>
                       <div class="col-6">

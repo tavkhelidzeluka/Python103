@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 def home_view(request: HttpRequest) -> HttpResponse:
     return render(request, 'index.html', {
-        'post_list': Post.objects.order_by('-created_at').all()[:3],
+        'post_list': Post.get_recent_posts(),
         'post_form': PostCreateFrom()
     })
 
