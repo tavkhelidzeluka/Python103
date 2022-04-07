@@ -47,6 +47,7 @@ def post_delete_view(request: HttpRequest, pk: int) -> HttpResponse:
     post.delete()
     return redirect('blog:home')
 
+
 @login_required
 def post_modify_view(request: HttpRequest, pk: int) -> HttpResponse:
     post = get_object_or_404(Post, pk=pk)
@@ -62,9 +63,7 @@ def post_modify_view(request: HttpRequest, pk: int) -> HttpResponse:
             form.save(True)
 
             return redirect('blog:post-details', pk)
-        
-        
-
+    
     return render(request, 'post-edit.html', {
         'post_form': form
     })
