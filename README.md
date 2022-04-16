@@ -1,5 +1,41 @@
 # Python 103
 
+
+### ფინალური პროექტი
+
+პროექტის ტიპში არ ხართ შეზღუდულები.
+
+**ვიზუალურ მხარეს ყურადღება არ მიექციევა (შეგიძლიათ გამოიყენოთ Template-ები)**
+
+მაგალითები რაც შეგიძლიათ ააწყოთ:
+
+- Blog
+- Learning Platform
+- "Stackoverflow clone"
+- Hotel Booking
+- Restaurant Booking
+
+აუცილებებლია კოდში გამოყენებული იყოს:
+- Generic Views (Create, List, ...)
+- Pagination
+- CRUD ოპერაციები (Create, Retrieve, Update, Delete)
+- Form | ModelForm
+- template tags (python in html)
+- Custom user
+- Authentication (sign in, sign out, register)
+- Authorization (აქვს თუ არა უფლება იუზერს რაიმე მომქმედების (წაშლა, განახლება, და ა.შ.))
+- Relations in models (Many to Many, Foreign Key, One to One)
+
+
+რა იქნება უკეთესი, რომ გააკეთოთ:
+- აპპებში urls.py -ში ყველგან დაწერეთ app_name და ყოველ path-ს ჰქონდეს დასახელება
+- Type Hinting (დასაბრუნებელი მნიშვნელობები, პარამეტრების ტიპები და სხვა)
+- image field-ის ან file field -ის გამოყენება
+- ვალიდატორების გამოყენება
+- blob-ის გამოყენება pk-ს მაგივრად (ყოველთვის არა!) მაგ. პროდუქტის ლინკი ჯობს blob-ით იყოს ვიდრე pk-თი
+    
+
+
 <details>
     <summary>მასალები</summary>
 
